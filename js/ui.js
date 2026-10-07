@@ -70,10 +70,10 @@ function renderBots() {
     bots.innerHTML = "";
 
     const positions = [
-        "top",
-        "left",
-        "right",
-        "bottomLeft"
+        "seat1",
+        "seat2",
+        "seat3",
+        "seat4"
     ];
 
     getBots().forEach((bot, index) => {
@@ -95,8 +95,10 @@ function renderBots() {
         :
 
         `
-        <div class="card back"></div>
-        <div class="card back"></div>
+        <div class="cards">
+            <div class="card back"></div>
+            <div class="card back"></div>
+        </div>
         `
         }
 
@@ -105,7 +107,10 @@ function renderBots() {
             </h3>
 
             <div>
-                Chips: ${bot.currentBet}
+                Chips: ${bot.chips}
+            </div>
+            <div>
+                Bet: ${bot.currentBet}
             </div>
 
             <div>
@@ -126,26 +131,32 @@ function renderDealer() {
         );
 
     const positions = [
+
         {
-            left: "50%",
-            top: "80%"
+            left:"55%",
+            top:"12%"
         },
+
         {
-            left: "50%",
-            top: "10%"
+            left:"18%",
+            top:"32%"
         },
+
         {
-            left: "10%",
-            top: "40%"
+            left:"82%",
+            top:"32%"
         },
+
         {
-            left: "90%",
-            top: "40%"
+            left:"30%",
+            top:"70%"
         },
+
         {
-            left: "20%",
-            top: "75%"
+            left:"56%",
+            top:"78%"
         }
+
     ];
 
     const pos =
@@ -156,7 +167,6 @@ function renderDealer() {
 
     dealer.style.left = pos.left;
     dealer.style.top = pos.top;
-
 }
 
 function render() {
