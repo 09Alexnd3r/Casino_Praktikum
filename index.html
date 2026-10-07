@@ -1,157 +1,87 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texas Hold'em</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Texas Hold'em</title>
 
-    <div id="startScreen" class="screen">
-        <div class="start-card">
-            <div class="logo">TEXAS HOLD'EM</div>
-            <p>Play Poker against AI</p>
-            <p class="subtext">Kostenlose Poker-Übung ohne Einsätze</p>
-            <button id="startButton" class="primary-button">START GAME</button>
-        </div>
+  <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+  <div class="topbar">
+      <h1>Texas Hold'em</h1>
+
+      <div class="info">
+          <span id="pot">Pot: 0</span>
+          <span id="phase">Pre-Flop</span>
+          <span id="currentBet">
+            Bet: 20
+          </span>
+      </div>
+  </div>
+
+  <div class="table">
+
+      <div id="community" class="community"></div>
+
+      <div id="bots" class="bots"></div>
+
+      <div class="player">
+
+          <h3 id="playerName">
+                YOU
+          </h3>
+
+          <div id="playerCards" class="cards"></div>
+
+          <div class="chips">
+              Chips:
+              <span id="playerChips">1000</span>
+          </div>
+
+          <div>
+              Bet:
+              <span id="playerBet">0</span>
+          </div>
+
+      </div>
+      <div id="dealerButton">
+      D
+      </div>
+      <div id="potCenter">
+          Pot: 0
+      </div>
+  
     </div>
 
-    <main id="gameScreen" class="game-screen hidden">
+  <div class="controls">
 
-        <header class="topbar">
-            <div>
-                <div class="brand">TEXAS HOLD'EM</div>
-                <div id="phaseLabel" class="phase-label">Pre-Flop</div>
-            </div>
+      <input
+          type="number"
+          id="betAmount"
+          value="20"
+          min="20"
+      >
 
-            <div class="header-info">
-                <div>
-                    <span>HAND</span>
-                    <strong id="handNumber">1</strong>
-                </div>
-                <div>
-                    <span>WINS</span>
-                    <strong id="winCount">0</strong>
-                </div>
-            </div>
-        </header>
+      <button id="checkBtn">Check</button>
+      <button id="callBtn">Call</button>
+      <button id="betBtn">Bet</button>
+      <button id="raiseBtn">Raise</button>
+      <button id="foldBtn">Fold</button>
+      <button id="allInBtn">All In</button>
 
-        <section class="table-area">
+  </div>
 
-            <div class="poker-table">
+  <div id="message"></div>
 
-                <div class="dealer-marker">D</div>
+  <script src="js/player.js"></script>
+  <script src="js/deck.js"></script>
+  <script src="js/evaluator.js"></script>
+  <script src="js/betting.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
 
-                <div id="bot1" class="player-seat seat-top">
-                    <div class="player-info">
-                        <span class="player-name">Alex</span>
-                        <span class="player-status" id="bot1Status">Waiting</span>
-                    </div>
-                    <div class="cards bot-cards" id="bot1Cards"></div>
-                    <div class="action-text" id="bot1Action"></div>
-                </div>
-
-                <div id="bot2" class="player-seat seat-left">
-                    <div class="player-info">
-                        <span class="player-name">Max</span>
-                        <span class="player-status" id="bot2Status">Waiting</span>
-                    </div>
-                    <div class="cards bot-cards" id="bot2Cards"></div>
-                    <div class="action-text" id="bot2Action"></div>
-                </div>
-
-                <div id="bot3" class="player-seat seat-right">
-                    <div class="player-info">
-                        <span class="player-name">Liam</span>
-                        <span class="player-status" id="bot3Status">Waiting</span>
-                    </div>
-                    <div class="cards bot-cards" id="bot3Cards"></div>
-                    <div class="action-text" id="bot3Action"></div>
-                </div>
-
-                <div id="bot4" class="player-seat seat-bottom-left">
-                    <div class="player-info">
-                        <span class="player-name">Noah</span>
-                        <span class="player-status" id="bot4Status">Waiting</span>
-                    </div>
-                    <div class="cards bot-cards" id="bot4Cards"></div>
-                    <div class="action-text" id="bot4Action"></div>
-                </div>
-
-                <div class="community-area">
-
-                    <div class="pot-display">
-                        <span>TABLE</span>
-                        <strong id="tableStatus">PRE-FLOP</strong>
-                    </div>
-
-                    <div id="communityCards" class="community-cards"></div>
-
-                    <div id="handMessage" class="hand-message">
-                        Your turn
-                    </div>
-
-                </div>
-
-                <div id="player" class="player-seat human-seat">
-
-                    <div class="player-info">
-                        <span class="player-name">YOU</span>
-                        <span id="playerStatus" class="player-status">Your Turn</span>
-                    </div>
-
-                    <div id="playerCards" class="cards player-cards"></div>
-
-                    <div class="action-text" id="playerAction"></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="control-panel">
-
-            <div class="turn-indicator">
-                <span class="indicator-dot"></span>
-                <span id="turnText">YOUR TURN</span>
-            </div>
-
-            <div class="actions">
-                <button id="foldButton" class="action-button danger">
-                    FOLD
-                </button>
-
-                <button id="checkButton" class="action-button primary">
-                    CHECK
-                </button>
-            </div>
-
-            <div class="game-message" id="gameMessage">
-                Make your decision.
-            </div>
-
-        </section>
-
-        <section id="resultPanel" class="result-panel hidden">
-
-            <div class="result-card">
-                <div id="resultTitle" class="result-title">SHOWDOWN</div>
-
-                <div id="winnerText" class="winner-text"></div>
-
-                <div id="resultHands" class="result-hands"></div>
-
-                <button id="nextHandButton" class="primary-button">
-                    NEXT HAND
-                </button>
-            </div>
-
-        </section>
-
-    </main>
-
-    <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
