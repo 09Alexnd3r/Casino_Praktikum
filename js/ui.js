@@ -103,7 +103,7 @@ function renderBots() {
         }
 
             <h3>${bot.name}
-            ${state.dealer === index + 1 ? " (D)" : ""}
+            ${index === 0 ? " (D)" : ""}
             </h3>
 
             <div>
@@ -130,43 +130,10 @@ function renderDealer() {
             "dealerButton"
         );
 
-    const positions = [
+    dealer.style.left = "53%";
 
-        {
-            left:"55%",
-            top:"12%"
-        },
+    dealer.style.top = "27%";
 
-        {
-            left:"18%",
-            top:"32%"
-        },
-
-        {
-            left:"82%",
-            top:"32%"
-        },
-
-        {
-            left:"30%",
-            top:"70%"
-        },
-
-        {
-            left:"56%",
-            top:"78%"
-        }
-
-    ];
-
-    const pos =
-        positions[
-            state.dealer %
-            positions.length
-        ];
-
-    dealer.style.left = pos.left;
-    dealer.style.top = pos.top;
 }
 
 function render() {
@@ -199,4 +166,17 @@ function updateCurrentBet(){
 
     }
 
+}
+function addLog(text){
+
+    const log =
+        document.getElementById(
+            "actionLog"
+        );
+
+    log.innerHTML +=
+        "<div>" + text + "</div>";
+
+    log.scrollTop =
+        log.scrollHeight;
 }

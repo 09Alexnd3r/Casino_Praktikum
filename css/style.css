@@ -48,9 +48,9 @@ color:white;
 
     position:absolute;
 
-    top:260px;
-
     left:50%;
+
+    top:330px;
 
     transform:translateX(-50%);
 
@@ -59,6 +59,7 @@ color:white;
     gap:15px;
 
     z-index:50;
+
 }
 
 .bot{
@@ -77,17 +78,19 @@ color:white;
 
     position:absolute;
 
-    bottom:40px;
+    bottom:45px;
 
     left:50%;
 
     transform:translateX(-50%);
 
-    text-align:center;
-
     width:320px;
 
-    z-index:100;
+    text-align:center;
+
+    border-radius:20px;
+
+    padding:10px;
 
 }
 
@@ -173,18 +176,18 @@ padding:10px;
 
     position:absolute;
 
-    width:160px;
+    width:170px;
 
-    min-height:170px;
-
-    padding:15px;
+    min-height:180px;
 
     background:
-        rgba(31,41,55,.95);
+        rgba(24,34,53,.85);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(8px);
 
     border-radius:18px;
+
+    padding:15px;
 
     border:
         1px solid rgba(255,255,255,.08);
@@ -212,11 +215,12 @@ padding:10px;
 
     position:absolute;
 
-    top:20px;
+    top:30px;
 
     left:50%;
 
     transform:translateX(-50%);
+
 }
 
 .seat2{
@@ -241,15 +245,15 @@ padding:10px;
 
     position:absolute;
 
-    bottom:120px;
+    left:350px;
 
-    left:260px;
+    bottom:90px;
 }
 .info{
 
     display:flex;
 
-    gap:20px;
+    gap:35px;
 
     align-items:center;
 
@@ -257,9 +261,8 @@ padding:10px;
 
     font-weight:bold;
 
-    color:#ffd700;
-
 }
+
 .card{
 
 animation:deal .3s ease;
@@ -281,9 +284,9 @@ border:2px solid #60a5fa;
 
     position:absolute;
 
-    width:34px;
+    width:30px;
 
-    height:34px;
+    height:30px;
 
     border-radius:50%;
 
@@ -295,14 +298,14 @@ border:2px solid #60a5fa;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
 
-    box-shadow:
-        0 0 12px rgba(255,255,255,.6);
+    align-items:center;
 
-    z-index:200;
+    box-shadow:
+        0 0 10px rgba(255,255,255,.6);
+
+    z-index:999;
 }
 #potCenter{
 
@@ -310,15 +313,15 @@ border:2px solid #60a5fa;
 
     left:50%;
 
-    top:380px;
+    top:470px;
 
     transform:translateX(-50%);
 
     color:#ffd700;
 
-    font-size:42px;
+    font-size:48px;
 
-    font-weight:bold;
+    font-weight:800;
 
     text-shadow:
         0 0 15px rgba(255,215,0,.4);
@@ -428,11 +431,11 @@ color:#ffd700;
 }
 .player .card{
 
-    width:90px;
+    width:95px;
 
-    height:120px;
+    height:130px;
 
-    font-size:32px;
+    font-size:34px;
 
 }
 .bot .card{
@@ -442,5 +445,35 @@ color:#ffd700;
     height:60px;
 
     font-size:14px;
+
+}
+#actionLog{
+
+    width:500px;
+
+    height:150px;
+
+    overflow-y:auto;
+
+    margin:20px auto;
+
+    padding:10px;
+
+    background:#111827;
+
+    border-radius:12px;
+
+    text-align:left;
+
+    font-size:15px;
+
+}
+.community .card{
+
+    width:75px;
+
+    height:105px;
+
+    font-size:28px;
 
 }

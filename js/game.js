@@ -14,7 +14,7 @@ const state = {
 
     currentBet: 20,
 
-    dealer: 0,
+    dealer: 1,
 
     players: [
 
@@ -174,18 +174,9 @@ function showWinner() {
 
     render();
 
+    renderDealer();
+
     state.currentBet = 20;
-
-    state.dealer++;
-
-    if (
-        state.dealer >=
-        state.players.length
-    ) {
-
-        state.dealer = 0;
-
-    }
 
     removeBrokePlayers();
 

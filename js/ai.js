@@ -82,6 +82,11 @@ function runBots(callback) {
                 botDecision(bot);
 
             bot.action = action;
+            addLog(
+                bot.name +
+                " : " +
+                action
+            );
 
             document.getElementById(
                 "message"

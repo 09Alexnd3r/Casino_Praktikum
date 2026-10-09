@@ -31,6 +31,10 @@ function playerCall() {
     ).textContent =
     "Du hast gecallt.";
 
+    addLog(
+        "Du hast gecallt."
+    );
+
     nextRound();
 }
 
@@ -55,6 +59,10 @@ function playerBet() {
     ).textContent =
     "Du setzt " + amount;
 
+    addLog(
+        "Du setzt " + amount
+    );
+
     nextRound();
 }
 
@@ -71,6 +79,10 @@ function playerRaise() {
     addToPot(
         getHumanPlayer(),
         amount
+    );
+
+    addLog(
+        "Du erhöhst auf " + amount
     );
 
     nextRound();
@@ -93,6 +105,10 @@ function playerAllIn() {
         "message"
     ).textContent =
     "ALL IN!";
+
+    addLog(
+        "Du gehst ALL IN!"
+    );
 
     nextRound();
 }
