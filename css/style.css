@@ -451,22 +451,19 @@ color:#ffd700;
 
     width:500px;
 
-    height:150px;
-
-    overflow-y:auto;
+    height:120px;
 
     margin:20px auto;
 
-    padding:10px;
+    overflow-y:auto;
 
     background:#111827;
 
     border-radius:12px;
 
+    padding:10px;
+
     text-align:left;
-
-    font-size:15px;
-
 }
 .community .card{
 
